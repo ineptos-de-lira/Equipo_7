@@ -21,7 +21,22 @@ public class ToDoListApp {
             System.out.print("Elige una opción: ");
 
            
-            opcion = scanner.nextInt();
+            while (true) {
+    if (!scanner.hasNextInt()) {
+        System.out.print("Entrada inválida. Ingresa un número (0-4): ");
+        scanner.nextLine(); // descarta lo que escribió (letras, etc.)
+        continue;
+    }
+
+    opcion = scanner.nextInt();
+
+    if (opcion < 0 || opcion > 4) {
+        System.out.print("Opción fuera de rango. Ingresa un número (0-4): ");
+        continue;
+    }
+
+    break; // opción válida
+}
 
             switch (opcion) {
                 case 1:
