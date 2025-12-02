@@ -64,6 +64,9 @@ public class ToDoListApp {
                         System.out.println("No hay tareas registradas.");
                         break;
                     }
+
+                    ordenarTareas(tareas);
+
                     System.out.println("\n--- TAREAS ---");
                     for (int i = 0; i < tareas.size(); i++) {
                         System.out.println((i + 1) + ". " + tareas.get(i));
@@ -82,5 +85,22 @@ public class ToDoListApp {
         } while (opcion != 0);
 
         scanner.close();
+    }
+
+    public static void sortTasksAlphabetically(List<String> tareas) {
+        ordenarTareas(tareas);
+    }
+
+    static boolean agregarTarea(List<String> tareas, String tarea) {
+        if (tarea == null || tarea.trim().isEmpty()) {
+            return false;
+        }
+
+        tareas.add(tarea.trim());
+        return true;
+    }
+
+    static void ordenarTareas(List<String> tareas) {
+        Collections.sort(tareas, String.CASE_INSENSITIVE_ORDER);
     }
 }
