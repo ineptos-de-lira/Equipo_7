@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -59,6 +60,14 @@ public class ToDoListApp {
                     break;
 
                 case 4:
+                    if (tareas.isEmpty()) {
+                        System.out.println("No hay tareas registradas.");
+                        break;
+                    }
+                    System.out.println("\n--- TAREAS ---");
+                    for (int i = 0; i < tareas.size(); i++) {
+                        System.out.println((i + 1) + ". " + tareas.get(i));
+                    }
                     break;
 
                 case 0:
