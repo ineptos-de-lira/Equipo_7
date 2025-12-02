@@ -25,6 +25,16 @@ public class ToDoListApp {
 
             switch (opcion) {
                 case 1:
+                    scanner.nextLine(); // limpiar el salto de línea pendiente
+    System.out.print("Escribe la nueva tarea: ");
+    String nuevaTarea = scanner.nextLine().trim();
+
+    if (nuevaTarea.isEmpty()) {
+        System.out.println("No puedes agregar una tarea vacía.");
+    } else {
+        tareas.add(nuevaTarea);
+        System.out.println("Tarea agregada: " + nuevaTarea);
+    }
                     break;
                 case 2:
                     break;
