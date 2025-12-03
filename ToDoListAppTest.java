@@ -1,8 +1,10 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 public class ToDoListAppTest {
@@ -30,7 +32,6 @@ public class ToDoListAppTest {
         assertEquals("beta", tareas.get(1));
         assertEquals("zeta", tareas.get(2));
     }
-    
 
     @Test
     void modificarTarea_modificaCorrectamente() {
@@ -56,5 +57,18 @@ public class ToDoListAppTest {
         assertFalse(ok);
         assertEquals("Barrer", tareas.get(0));
         assertEquals("Lavar", tareas.get(1));
+    }
+
+    @Test
+    void eliminarTarea_eliminaCorrectamente() {
+        final List<String> tareas = new ArrayList<>();
+        tareas.add("Barrer");
+        tareas.add("Lavar");
+
+        final boolean ok = ToDoListApp.eliminarTarea(tareas, 1);
+
+        assertTrue(ok);
+        assertEquals(1, tareas.size());
+        assertEquals("Lavar", tareas.get(0));
     }
 }
