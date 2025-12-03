@@ -54,6 +54,23 @@ public class ToDoListApp {
                     break;
 
                 case 2:
+                   
+                    ordenarTareas(tareas);
+
+                    System.out.println("\n--- TAREAS ---");
+                    for (int i = 0; i < tareas.size(); i++) {
+                        System.out.println((i + 1) + ". " + tareas.get(i));
+                    }
+
+                    System.out.print("Ingresa el número de la tarea a modificar: ");
+                    int numero = scanner.nextInt();
+
+                    System.out.print("Escribe el nuevo texto de la tarea: ");
+                    String nuevoTexto = scanner.nextLine();
+
+                    tareas.set(numero, nuevoTexto);
+
+                    System.out.println("Tarea modificada correctamente.");
                     break;
 
                 case 3:
