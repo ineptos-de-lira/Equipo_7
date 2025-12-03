@@ -54,6 +54,42 @@ public class ToDoListApp {
                     break;
 
                 case 2:
+                   
+                    if (tareas.isEmpty()) {
+                        System.out.println("No hay tareas registradas.");
+                        break;
+                    }
+
+                    ordenarTareas(tareas);
+
+                    System.out.println("\n--- TAREAS ---");
+                    for (int i = 0; i < tareas.size(); i++) {
+                        System.out.println((i + 1) + ". " + tareas.get(i));
+                    }
+
+                    System.out.print("Ingresa el número de la tarea a modificar: ");
+                    while (!scanner.hasNextInt()) {
+                        System.out.print("Entrada inválida. Ingresa un número: ");
+                        scanner.nextLine();
+                    }
+                    int numero = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if (numero < 1 || numero > tareas.size()) {
+                        System.out.println("Número de tarea fuera de rango.");
+                        break;
+                    }
+
+                    System.out.print("Escribe el nuevo texto de la tarea: ");
+                    String nuevoTexto = scanner.nextLine().trim();
+
+                    if (nuevoTexto.isEmpty()) {
+                        System.out.println("El texto no puede estar vacío.");
+                        break;
+                    }
+
+                    tareas.set(numero - 1, nuevoTexto);
+                    System.out.println("Tarea modificada correctamente.");
                     break;
 
                 case 3:
@@ -102,5 +138,10 @@ public class ToDoListApp {
 
     static void ordenarTareas(List<String> tareas) {
         Collections.sort(tareas, String.CASE_INSENSITIVE_ORDER);
+    }
+
+    public static boolean modificarTarea(List<String> tareas, int i, String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'modificarTarea'");
     }
 }
