@@ -13,11 +13,11 @@ public class ToDoListApp {
 
         do {
             System.out.println("\n=========================");
-            System.out.println("        TO-DO LIST         ");
-            System.out.println("===========================");
+            System.out.println("        TO-DO LIST       ");
+            System.out.println("=========================");
             System.out.println("1. Agregar tarea");
             System.out.println("2. Modificar tarea");
-            System.out.println("3. Eliminar tarea ");
+            System.out.println("3. Eliminar tarea");
             System.out.println("4. Mostrar tareas");
             System.out.println("0. Salir");
             System.out.print("Elige una opción: ");
@@ -35,7 +35,6 @@ public class ToDoListApp {
                     System.out.print("Opción fuera de rango. Ingresa un número (0-4): ");
                     continue;
                 }
-
                 break;
             }
 
@@ -54,7 +53,6 @@ public class ToDoListApp {
                     break;
 
                 case 2:
-                   
                     if (tareas.isEmpty()) {
                         System.out.println("No hay tareas registradas.");
                         break;
@@ -72,6 +70,7 @@ public class ToDoListApp {
                         System.out.print("Entrada inválida. Ingresa un número: ");
                         scanner.nextLine();
                     }
+
                     int numero = scanner.nextInt();
                     scanner.nextLine();
 
@@ -93,6 +92,34 @@ public class ToDoListApp {
                     break;
 
                 case 3:
+                    if (tareas.isEmpty()) {
+                        System.out.println("No hay tareas registradas.");
+                        break;
+                    }
+
+                    ordenarTareas(tareas);
+
+                    System.out.println("\n--- TAREAS ---");
+                    for (int i = 0; i < tareas.size(); i++) {
+                        System.out.println((i + 1) + ". " + tareas.get(i));
+                    }
+
+                    System.out.print("Ingresa el número de la tarea a eliminar: ");
+                    while (!scanner.hasNextInt()) {
+                        System.out.print("Entrada inválida. Ingresa un número: ");
+                        scanner.nextLine();
+                    }
+
+                    int eliminar = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if (eliminar < 1 || eliminar > tareas.size()) {
+                        System.out.println("Número de tarea fuera de rango.");
+                        break;
+                    }
+
+                    String tareaEliminada = tareas.remove(eliminar - 1);
+                    System.out.println("Tarea eliminada: " + tareaEliminada);
                     break;
 
                 case 4:
@@ -140,8 +167,7 @@ public class ToDoListApp {
         Collections.sort(tareas, String.CASE_INSENSITIVE_ORDER);
     }
 
-    public static boolean modificarTarea(List<String> tareas, int i, String string) {
-        // TODO Auto-generated method stub
+    public static boolean modificarTarea(List<String> tareas, int index, String texto) {
         throw new UnsupportedOperationException("Unimplemented method 'modificarTarea'");
     }
 }
