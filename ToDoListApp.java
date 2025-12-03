@@ -93,6 +93,18 @@ public class ToDoListApp {
                     break;
 
                 case 3:
+                    ordenarTareas(tareas);
+                    System.out.println("\n--- TAREAS ---");
+                    for (int i = 0; i < tareas.size(); i++) {
+                        System.out.println((i + 1) + ". " + tareas.get(i));
+                    }
+
+                    System.out.print("Ingresa el número de la tarea a eliminar: ");
+                    int eliminar = scanner.nextInt();
+
+                    tareas.remove(eliminar);
+
+                    System.out.println("Tarea eliminada.");
                     break;
 
                 case 4:
